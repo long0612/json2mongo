@@ -11,7 +11,7 @@ module.exports = function (obj) {
       case '$binary':
       case '$type':
         // TODO: Will this behave if $type isn't set?
-        return new mongo.Binary(obj.$binary, obj.$type);
+        return new mongo.Binary(new Buffer(obj.$binary, 'base64').toString(), obj.$type);
       case '$date':
         return new Date(val);
       case '$timestamp':
