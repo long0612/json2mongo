@@ -32,7 +32,7 @@ module.exports = function (obj) {
       case '$maxKey':
         return new mongo.MaxKey();
       case '$numberLong':
-        return new mongo.Long(val);
+        return new mongo.Long.fromString(val);
     }
     if (typeof val === 'object')
       obj[key] = module.exports(val);
